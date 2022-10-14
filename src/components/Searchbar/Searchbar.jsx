@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 import { Header, SearchForm, SearchBtn, SearchField } from './Searchbar.styled';
 

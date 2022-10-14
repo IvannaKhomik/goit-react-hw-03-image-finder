@@ -1,10 +1,8 @@
 import { Component } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'react-hot-toast';
 import { Container } from './App.styled';
 import Modal from './Modal';
 import ImageGallery from './ImageGallery';
-
 import Searchbar from './Searchbar';
 
 export default class App extends Component {
@@ -36,7 +34,13 @@ export default class App extends Component {
     return (
       <Container>
         <Searchbar searchByQuery={this.onSearchByQuery} />
-        <ToastContainer autoClose={3000} />
+        <Toaster
+          position="top-center"
+          reverseOrder={true}
+          toastOptions={{
+            duration: 2000,
+          }}
+        />
         <ImageGallery onSetLargeImgUrl={this.onSetLargeImgUrl} query={query} />
         {largeImgUrl && (
           <Modal url={largeImgUrl} tag={tag} onCloseModal={this.onCloseModal} />
