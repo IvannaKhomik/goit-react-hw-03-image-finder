@@ -19,11 +19,11 @@ export default class Searchbar extends Component {
 
   onSubmitBtn = e => {
     e.preventDefault();
-    if (this.state.query.trim() === '') {
-      toast.error('Please, type the title of image you want to find');
-      return;
+    const { query } = this.state;
+    if (query.trim() === '') {
+      return toast.error('Please, type the title of image you want to find');
     }
-    this.props.searchByQuery(this.state.query);
+    this.props.searchByQuery(query);
     this.reset();
   };
 

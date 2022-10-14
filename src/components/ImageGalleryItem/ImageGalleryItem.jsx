@@ -1,10 +1,10 @@
 import { GalleryItem, GalleryImg } from './ImageGalleryItem.styled';
 
-export const ImageGalleryItem = ({ url, tags }) => {
+export const ImageGalleryItem = ({ url, tags, onSetLargeImgUrl }) => {
   return (
     <>
       <GalleryItem>
-        <GalleryImg src={url} alt={tags} />
+        <GalleryImg onClick={onSetLargeImgUrl} src={url} alt={tags} />
       </GalleryItem>
     </>
   );
