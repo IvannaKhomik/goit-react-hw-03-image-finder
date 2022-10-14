@@ -51,6 +51,7 @@ export default class ImageGallery extends Component {
   };
 
   onClickLoadBtn = () => {
+    console.log(this.state.page);
     this.setState(prevState => {
       return {
         page: (prevState.page += 1),
