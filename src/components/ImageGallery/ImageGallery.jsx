@@ -25,7 +25,7 @@ export default class ImageGallery extends Component {
         .catch(error => this.setState({ error, status: 'rejected' }));
     }
 
-    if (prevState.page !== page && page !== 1) {
+    if (prevState.page !== page) {
       this.setState({ load: true });
       getImages(query, page)
         .then(res => this.onLoadMoreImages(res.hits))
@@ -51,7 +51,6 @@ export default class ImageGallery extends Component {
   };
 
   onClickLoadBtn = () => {
-    console.log(this.state.page);
     this.setState(prevState => {
       return {
         page: (prevState.page += 1),
