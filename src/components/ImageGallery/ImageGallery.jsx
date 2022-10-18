@@ -59,7 +59,7 @@ export default class ImageGallery extends Component {
   };
 
   render() {
-    const { images, status, error, load } = this.state;
+    const { images, status, error, load, page } = this.state;
 
     if (status === 'pending') {
       return <Loader />;
@@ -71,7 +71,7 @@ export default class ImageGallery extends Component {
 
     if (status === 'resolved') {
       const noResults = images.length === 0;
-      const noMoreImages = images.length / 12 < 1;
+      const noMoreImages = images.length / (12 * page) < 1;
       return noResults ? (
         <Error> Sorry, we couldn't find a match for your search.</Error>
       ) : (
